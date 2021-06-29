@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>To-Do</title>
+    <script
+      src="https://kit.fontawesome.com/928ad34973.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="main.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav id="nav">
+      <div id="navBarContainer">
+        <i class="fas fa-home" id="home"></i>
+        <i class="fas fa-plus" id="addItem"></i>
+        <i class="fas fa-cog" id="settings"></i>
+      </div>
+    </nav>
+    <div id="content">
+      <div class="formPopup" id="myForm">
+        <form class="formContainer" action="index.html" method="post">
+          <h1>New Item</h1>
+          <label for="item">Item</label>
+          <input type="text" id="item" required />
+
+          <button type="button" id="submit" class="btn">Submit</button>
+          <button type="button" class="btn cancel" onclick="closeForm()">
+            Cancel
+          </button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
