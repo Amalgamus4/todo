@@ -1,26 +1,25 @@
-export default addItem;
-
-function addItem() {
-  //display add item box
-  displayForm();
-  //create new list item with supplied content
-  createItem();
-  //display new item
+export default function showAddItemForm() {
+  let style = document.getElementById("addItemForm").style.display;
+  "none" == style ? (style = "block") : (style = "none");
+  document.getElementById("settingsForm").style.display = style;
 }
 
-function displayForm() {
-  document.getElementById("myForm").style.display = "block";
-  document.getElementById("submit").addEventListener("click", submitInfo);
-}
-
-function createItem() {
-  document.createElement("div");
-}
+document.getElementById("itemSubmit").addEventListener("click", submitInfo);
+document.getElementById("itemCancel").addEventListener("click", closeItemForm);
 
 function submitInfo() {
-  createItem();
+  createElement();
+  closeItemForm();
 }
 
-export function closeForm() {
-  document.getElementById("myForm").style.display = "none";
+function createElement() {
+  const input = document.getElementById("item");
+  let item = input.value;
+  const listItem = document.createElement("div");
+  listItem.textContent = item;
+  document.getElementById("content").appendChild("listItem");
+}
+
+function closeItemForm() {
+  document.getElementById("addItemForm").style.display = "none";
 }
