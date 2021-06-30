@@ -19,14 +19,26 @@
       </div>
     </nav>
     <div id="content">
-      <div class="formPopup" id="myForm">
+      <div class="formPopup" id="addItemForm">
         <form class="formContainer" action="index.html" method="post">
           <h1>New Item</h1>
           <label for="item">Item</label>
-          <input type="text" id="item" required />
+          <input type="text" name="text" id="item" required />
 
-          <button type="button" id="submit" class="btn">Submit</button>
-          <button type="button" class="btn cancel" onclick="closeForm()">
+          <button type="button" id="itemSubmit" class="btn">Submit</button>
+          <button type="button" id="itemCancel" class="btn cancel">
+            Cancel
+          </button>
+        </form>
+      </div>
+
+      <div class="formPopup" id="settingsForm">
+        <form class="formContainer" action="index.html" method="post">
+          <label for="color">Header Color</label>
+          <input type="color" name="color" id="color" />
+
+          <button type="button" id="settingsSave" class="btn">Save</button>
+          <button type="button" id="settingsCancel" class="btn cancel">
             Cancel
           </button>
         </form>
