@@ -25,3 +25,21 @@
 .formPopup {
   display: none;
 }
+
+#addItemForm {
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 5;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}
+
+#settingsForm {
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 5;
+  float: right;
+}
