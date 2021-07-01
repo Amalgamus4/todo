@@ -1,6 +1,6 @@
 export default function showSettingsForm() {
   let style = document.getElementById("settingsForm").style.display;
-  "none" == style ? (style = "block") : (style = "none");
+  "block" == style ? (style = "none") : (style = "block");
   document.getElementById("settingsForm").style.display = style;
 }
 

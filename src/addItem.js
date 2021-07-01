@@ -1,7 +1,7 @@
 export default function showAddItemForm() {
   let style = document.getElementById("addItemForm").style.display;
-  "none" == style ? (style = "block") : (style = "none");
-  document.getElementById("settingsForm").style.display = style;
+  "block" == style ? (style = "none") : (style = "block");
+  document.getElementById("addItemForm").style.display = style;
 }
 
 document.getElementById("itemSubmit").addEventListener("click", submitInfo);
@@ -14,12 +14,32 @@ function submitInfo() {
 
 function createElement() {
   const input = document.getElementById("item");
-  let item = input.value;
+  let textInput = input.value;
   const listItem = document.createElement("div");
-  listItem.textContent = item;
-  document.getElementById("content").appendChild("listItem");
+  listItem.textContent = textInput;
+  listItem.classList.add("listItem");
+  document.getElementById("content").appendChild(listItem);
+  addButtons(listItem);
 }
 
 function closeItemForm() {
   document.getElementById("addItemForm").style.display = "none";
+}
+
+function addButtons(item) {
+  const itemDone = document.createElement("button");
+  itemDone.classList.add("btn");
+  itemDone.textContent = "Done";
+  itemDone.addEventListener(
+    "click",
+    () => (itemDone.parentElement.style.textDecoration = "line-through")
+  );
+
+  const removeItem = document.createElement("button");
+  removeItem.classList.add("btn");
+  removeItem.textContent = "Delete";
+  removeItem.addEventListener("click", () => removeItem.parentElement.remove());
+
+  item.appendChild(itemDone);
+  item.appendChild(removeItem);
 }
