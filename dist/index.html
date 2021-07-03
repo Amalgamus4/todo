@@ -13,36 +13,36 @@
   <body>
     <nav id="nav">
       <div id="navBarContainer">
-        <i class="fas fa-home" id="home"></i>
-        <i class="fas fa-plus" id="addItem"></i>
-        <i class="fas fa-cog" id="settings"></i>
+        <i class="fas fa-home headIcon" id="home"></i>
+        <i class="fas fa-plus headIcon" id="addItem"></i>
+        <i class="fas fa-cog headIcon" id="settings"></i>
       </div>
     </nav>
+
+    <div class="formPopup" id="settingsForm">
+      <form class="formContainer" action="index.html" method="post">
+        <label for="color">Header Color</label>
+        <input type="color" name="color" id="color" />
+
+        <button type="button" id="settingsSave" class="btn">Save</button>
+        <button type="button" id="settingsCancel" class="btn cancel">
+          Cancel
+        </button>
+      </form>
+    </div>
+
+    <div class="formPopup" id="addItemForm">
+      <form class="formContainer" action="index.html" method="post">
+        <input type="text" id="item" placeholder="New item" />
+
+        <button type="submit" id="itemSubmit" class="btn">Submit</button>
+        <button type="button" id="itemCancel" class="btn cancel">
+          Cancel
+        </button>
+      </form>
+    </div>
     <div id="content">
-      <div class="formPopup" id="addItemForm">
-        <form class="formContainer" action="index.html" method="post">
-          <h1>New Item</h1>
-          <label for="item">Item</label>
-          <input type="text" name="text" id="item" required />
-
-          <button type="button" id="itemSubmit" class="btn">Submit</button>
-          <button type="button" id="itemCancel" class="btn cancel">
-            Cancel
-          </button>
-        </form>
-      </div>
-
-      <div class="formPopup" id="settingsForm">
-        <form class="formContainer" action="index.html" method="post">
-          <label for="color">Header Color</label>
-          <input type="color" name="color" id="color" />
-
-          <button type="button" id="settingsSave" class="btn">Save</button>
-          <button type="button" id="settingsCancel" class="btn cancel">
-            Cancel
-          </button>
-        </form>
-      </div>
+      <ul id="list"></ul>
     </div>
   </body>
 </html>

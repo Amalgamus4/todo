@@ -4,40 +4,42 @@ export default function showAddItemForm() {
   document.getElementById("addItemForm").style.display = style;
 }
 
-document.getElementById("itemSubmit").addEventListener("click", submitInfo);
-document.getElementById("itemCancel").addEventListener("click", closeItemForm);
+const input = document.getElementById("item");
+const addItemForm = document.getElementById("addItemForm");
+const itemCancel = document.getElementById("itemCancel");
+const itemSubmit = document.getElementById("itemSubmit");
 
-function submitInfo() {
-  createElement();
-  closeItemForm();
+addItemForm.addEventListener("submit", submitInfo);
+
+function submitInfo(e) {
+  e.preventDefault();
+  createElement(input.value);
+  input.value = "";
 }
 
-function createElement() {
-  const input = document.getElementById("item");
-  let textInput = input.value;
-  const listItem = document.createElement("div");
-  listItem.textContent = textInput;
+itemCancel.addEventListener(
+  "click",
+  () => (addItemForm.style.display = "none")
+);
+
+const createElement = (text) => {
+  const listItem = document.createElement("li");
+  listItem.textContent = text;
   listItem.classList.add("listItem");
-  document.getElementById("content").appendChild(listItem);
+  document.getElementById("list").appendChild(listItem);
   addButtons(listItem);
-}
-
-function closeItemForm() {
-  document.getElementById("addItemForm").style.display = "none";
-}
+};
 
 function addButtons(item) {
-  const itemDone = document.createElement("button");
-  itemDone.classList.add("btn");
-  itemDone.textContent = "Done";
+  const itemDone = document.createElement("i");
+  itemDone.classList.add("fas", "fa-check", "itemIcon");
   itemDone.addEventListener(
     "click",
     () => (itemDone.parentElement.style.textDecoration = "line-through")
   );
 
-  const removeItem = document.createElement("button");
-  removeItem.classList.add("btn");
-  removeItem.textContent = "Delete";
+  const removeItem = document.createElement("i");
+  removeItem.classList.add("far", "fa-trash-alt", "itemIcon");
   removeItem.addEventListener("click", () => removeItem.parentElement.remove());
 
   item.appendChild(itemDone);
